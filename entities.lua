@@ -41,7 +41,7 @@ end
 function ents.update(dt)
   for i, ent in pairs(ents.objects) do
     if ent.update then
-      ent.update(dt)
+      ent:update(dt)
     end    
   end  
 end
@@ -49,7 +49,7 @@ end
 function ents.draw()
   for i, ent in pairs(ents.objects) do
     if ent.draw then
-      ent.draw()
+      ent:draw()
     end    
   end
 end
