@@ -6,6 +6,7 @@ local id = 0
 
 function ents.Startup()
   register["cloud"] = love.filesystem.load(ents.objectPath .. "cloud.lua")
+  register["flame"] = love.filesystem.load(ents.objectPath .. "flame.lua")
 end
 
 -- load & launch alua script
@@ -15,13 +16,9 @@ end
 
 
 function ents.Create(name, x, y)
-  if not x then
-    x = 0
-  end
+  x = x or 0
   
-  if not y then
-    y = 0
-  end
+  y = y or 0
   
   if register[name] then
     id = id + 1
@@ -37,6 +34,18 @@ function ents.Create(name, x, y)
   end
   
 end
+
+function ents.destroy(id)
+  
+  if  ents.objects[id] then
+    if ents.objects[id].die then
+      ents.objects[id]:die()
+    end
+    ents.objects[id] = nil
+  end
+  
+end
+
 
 function ents.update(dt)
   for i, ent in pairs(ents.objects) do
