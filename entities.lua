@@ -7,6 +7,7 @@ local id = 0
 function ents.Startup()
   register["cloud"] = love.filesystem.load(ents.objectPath .. "cloud.lua")
   register["flame"] = love.filesystem.load(ents.objectPath .. "flame.lua")
+  register["rain"] = love.filesystem.load(ents.objectPath .. "rain.lua")
 end
 
 -- load & launch alua script

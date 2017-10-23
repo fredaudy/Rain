@@ -27,6 +27,12 @@ function love.load()
   cloud1:setSize(250, 100)
   cloud1:setDrawParam(largeur, 0, 0, 128)
   
+  local rain = ents.Create("rain", 0, hauteur/5)
+  rain:fromCloud(cloud1)
+  rain:setColor(39, 147, 227)
+  rain:setSize(10, 25)
+  rain:setDrawParam(largeur, 0, 0, 128, 96)
+  
   local flame1 = ents.Create("flame", 0, hauteur/3)
   flame1:setColor(222, 173, 69)
   flame1:setSize(20, 20)
